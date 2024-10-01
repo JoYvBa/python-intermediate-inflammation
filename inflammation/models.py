@@ -53,9 +53,9 @@ def patient_normalise(data):
         raise TypeError('Data must be an Numpy array')
     if len(data.shape) != 2:
         raise ValueError('Shape of inflammation array should be 2-dimensional')
-    max = np.nanmax(data, axis=1)
+    max_data = np.nanmax(data, axis=1)
     with np.errstate(divide='ignore', invalid='ignore'):
-        normalised = data / max[:, np.newaxis]
+        normalised = data / max_data[:, np.newaxis]
     normalised[np.isnan(normalised)] = 0
     normalised[normalised < 0] = 0
     return normalised
