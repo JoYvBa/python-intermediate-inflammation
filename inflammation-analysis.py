@@ -30,6 +30,11 @@ def main(args):
             raise ValueError(f'Unsupported data file format: {extension}')
         analyse_data(data_input)
 
+        graph_data = {
+            'standard deviation by day': data_input,
+        }
+        views.visualize(graph_data)
+
 
     for filename in infiles:
         inflammation_data = models.load_csv(filename)
