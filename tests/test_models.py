@@ -64,9 +64,6 @@ def test_patient_normalise(test, expected, expect_raises):
     """Test normalisation works for arrays of one and positive integers.
        Test with a relative and absolute tolerance of 0.01."""
     from inflammation.models import patient_normalise
-    
-    result_data = daily_std(data)['standard deviation']
-    npt.assert_approx_equal(result_data, expected_standard_deviation)
 
     if expect_raises is not None:
         with pytest.raises(expect_raises):
@@ -85,8 +82,8 @@ def test_patient_normalise(test, expected, expect_raises):
 ])
 
 def test_daily_standard_deviation(data, expected_standard_deviation):
-    from inflammation.models import s_dev
-    result_data = s_dev(data)['standard deviation']
+    from inflammation.models import daily_std
+    result_data = daily_std(data)
     npt.assert_approx_equal(result_data, expected_standard_deviation)
 
 
