@@ -19,9 +19,9 @@ def main(args):
     if not isinstance(infiles, list):
         infiles = [args.infiles]
 
-
     if args.full_data_analysis:
         _, extension = os.path.splitext(infiles[0])
+
         if extension == '.json':
             data_input = JSONDataSource(os.path.dirname(infiles[0]))
         elif extension == '.csv':
@@ -50,7 +50,7 @@ def main(args):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
-        description='A basic patient inflammation data management system')
+        description='A basic patient inflammation pythondata management system')
 
     parser.add_argument(
         'infiles',
